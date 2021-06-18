@@ -14,8 +14,8 @@ Please visit <a href="https://github.com/zorani/digitalocean-objects">GitHub</a>
 
 - [How to install](#how-to-install)
 - [Configurations](#configurations)
-- [OMG OMG SHOW ME SHOW ME HOW... NOW!!!](#omg-omg-show-me-show-me-how...-now!!!)
-- [Blocking, Wonderfull Blocking](#blocking,-wonderfull-blocking)
+- [OMG OMG SHOW ME SHOW ME HOW... NOW!!!](#omg-omg-show-me-show-me-how-now)
+- [Blocking Wonderfull Blocking](#blocking-wonderfull-blocking)
 - [Account](#account)
 	- [Account Manager](#account-manager)
 		- [Retrieve Account Information](#retrieve-account-information)
@@ -178,7 +178,7 @@ maximum_failed_attempts: a failed attempt is put to the back of an internal queu
 
 **[⬆ back to top](#table-of-contents)**
 
-# OMG OMG SHOW ME SHOW ME HOW... NOW!!!
+# OMG OMG SHOW ME SHOW ME HOW NOW
 
 Okay!! Okay!!  Here is a quick start example!
 
@@ -242,7 +242,7 @@ Hope you're happy...
 
 **[⬆ back to top](#table-of-contents)**
 
-# Blocking, Wonderfull Blocking
+# Blocking Wonderfull Blocking
 
 Did you notice in the quick start example above we didn't at any point check to see if the droplet, or the volume were ready and available?
 
