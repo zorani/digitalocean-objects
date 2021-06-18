@@ -8,7 +8,7 @@
 <a href="https://github.com/zorani/digitalocean-objects"><img src="https://img.shields.io/github/watchers/zorani/digitalocean-objects.svg?style=social&label=Watch"></a>
 </p>
 
-
+Please visit <a href="https://github.com/zorani/digitalocean-objects">GitHub</a> page for documentation that has navigation that works.
 
 # Table of Contents
 
@@ -64,7 +64,7 @@
 		- [Detach A Volume](#detach-a-volume)
 		- [Restore Droplet](#restore-droplet)
 		- [Resize Droplet](#resize-droplet)
-		- [Delete Snapshot](#delete-snapshot)
+		- [Delete Droplet](#delete-droplet)
 - [Block Storage (Volumes)](#block-storage-(volumes))
 	- [Volume Manager](#volume-manager)
 		 - [Create New Volume ](#create-new-volume)
@@ -578,7 +578,7 @@ droplet_object.resize_droplet(
 				disk_resize=False
 				)
 ```
-### Delete Snapshot
+### Delete Droplet
 ```python
 droplet_object.delete()
 ```
