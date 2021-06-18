@@ -1,6 +1,6 @@
 <h1 align="center">digitalocean objects (pip3 install digitaloceanobjects)</h1>
 <p align="left"><b>everyone:</b> I wish, for once, to just have a simple object oriented experience with the api.</p>
-<p align="left"><b>digitalocean-objects:</b> </p>
+<p align="left"><b>digitaloceanobjects:</b> </p>
 
 <p align="center">
 <a href="https://github.com/zorani/digitalocean-objects"><img src="https://img.shields.io/github/forks/zorani/digitalocean-objects.svg?style=social&label=Fork"></a>
