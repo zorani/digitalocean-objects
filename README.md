@@ -126,6 +126,8 @@ You can install digitalocean-objects using **pip3**
 
 or if you prefer install from a cloned git hub repo, from the root of the repo:
 
+    python3 setup.py sdist
+    twine check dist/*
     pip3 install -e ./
 
 **[⬆ back to top](#table-of-contents)**
