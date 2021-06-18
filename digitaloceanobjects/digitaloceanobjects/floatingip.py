@@ -31,7 +31,7 @@ class FloatingIPManager:
 
     def check_limit(self):
         floating_ip_limit = self.account_manager.floating_ip_limit()
-        if not len(self.retreive_all_floating_ips()) < floating_ip_limit:
+        if not len(self.retrieve_all_floating_ips()) < floating_ip_limit:
             raise ErrorAccountFloatingIPLimitReached(
                 f"You have reached your floating ip limit of {floating_ip_limit}"
             )
@@ -79,7 +79,7 @@ class FloatingIPManager:
             return newfloatingip
 
     def check_droplet_for_floating_ip(self, droplet: Droplet):
-        floating_ips = self.retreive_all_floating_ips()
+        floating_ips = self.retrieve_all_floating_ips()
         for floating_ip in floating_ips:
             if not floating_ip.attributes.droplet == None:
                 if floating_ip.attributes.droplet["id"] == droplet.attributes.id:
@@ -100,7 +100,7 @@ class FloatingIPManager:
             raise ErrorRegionDoesNotExist(f'"{region_slug}" not a valid region')
 
     def retrieve_floating_ip(self, ip):
-        floatingips = self.retreive_all_floating_ips()
+        floatingips = self.retrieve_all_floating_ips()
         for floatingip in floatingips:
             if floatingip.attributes.ip == ip:
                 return floatingip
