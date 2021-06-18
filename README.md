@@ -108,7 +108,14 @@
 		- [Retrieve All Actions](#retrieve-all-actions)
 		- [Retrieve Action](#retrieve-action)
 	- [Action Object](#action-object)
-- [Links](#links)
+- [Exceptions](#exceptions)
+    - [Droplet Exceptions](#droplet-exceptions)
+    - [Volume Exceptions](#volume-exceptions)
+    - [Snapshot Exceptions](#snapshot-exceptions)
+    - [Action Exceptions](#action-exceptions)
+    - [Region Exceptions](#region-exceptions)
+    - [Floating IP Exceptions](#floating-ip-exceptions)
+    - [SSH Key Exceptions](#ssh-key-exceptions)
 
 # How to install
 
@@ -800,3 +807,48 @@ class ActionAttributes:
 ```
 
 **[⬆ back to top](#table-of-contents)**
+
+# Exceptions
+
+## Droplet Exceptions
+```python
+ErrorDropletNotFound
+ErrorDropletNameContainsInvalidChars
+ErrorDropletSlugSizeNotFound
+ErrorDropletResizeDiskError
+ErrorAccountDropletLimitReached
+ErrorDropletAttachedVolumeCountAlreadAtLimit
+```
+## Volume Exceptions
+```python
+ErrorVolumeAlreadyExists
+ErrorVolumeNotFound
+ErrorVolumeResizeValueTooLarge
+ErrorVolumeResizeDirection
+ErrorAccountVolumeLimitReached
+```
+
+## Snapshot Exceptions
+```python
+ErrorSnapshotNotFound
+```
+## Action Exceptions
+```python
+ErrorActionDoesNotExists
+ErrorActionFailed
+```
+## Region Exceptions
+```python
+ErrorNotSameRegion
+ErrorRegionDoesNotExist
+```
+## Floating IP Exceptions
+```python
+ErrorAccountFloatingIPLimitReached
+ErrorFloatingIPDoesNotExists
+ErrorDropletAlreadyHasFloatingIP
+```
+## SSH Key Exceptions
+```python
+ErrorSSHkeyDoesNotExists
+```
