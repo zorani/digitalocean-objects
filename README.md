@@ -583,7 +583,7 @@ droplet_object.resize_droplet(
 droplet_object.delete()
 ```
 Deletes droplet from your account.
-Sets ``` droplet_object.deleted=False``` so object methods will no longer work.
+Sets ``` droplet_object.deleted=True``` so object methods will no longer work.
 
 **[⬆ back to top](#table-of-contents)**
 
