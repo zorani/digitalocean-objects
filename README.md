@@ -14,6 +14,7 @@
 
 - [How to install](#how-to-install)
 - [Configurations](#configurations)
+- [OMG OMG SHOW ME SHOW ME HOW... NOW!!!](#omg-omg-show-me-show-me-how...-now!!!)
 - [Account](#account)
 	- [Account Manager](#account-manager)
 		- [Retrieve Account Information](#retrieve-account-information)
@@ -171,6 +172,70 @@ maximum_failed_attempts: a failed attempt is put to the back of an internal queu
             maximum_failed_attempts=3,
         )
 ```
+
+**[⬆ back to top](#table-of-contents)**
+
+# OMG OMG SHOW ME SHOW ME HOW... NOW!!!
+
+Okay!! Okay!!  Here is a quick start example!
+
+Look how easy it is to work with digitaloceanobjects...
+
+...read the code comments...
+
+```python3
+#!/usr/bin/env python3
+
+from digitaloceanobjects import Droplet, DropletManager
+from digitaloceanobjects import Volume, VolumeManager
+
+#Create a droplet manager, to you know... manage your droplets.
+droplet_manager = DropletManager()
+
+#Create a new droplet.
+my_brand_new_droplet = droplet_manager.create_new_droplet(
+    name="test-droplet",
+    region="ams3",
+    size="s-1vcpu-1gb",
+    image="ubuntu-16-04-x64",
+    tags=["digitalocean", "objects", "are", "great"],
+)
+
+#What? Done already?
+#Yup... now output the droplet details.
+print(type(my_brand_new_droplet))
+print(my_brand_new_droplet.attributes)
+
+#Want to attache a volume? No problem...
+
+#Create a volume manager.
+volume_manager = VolumeManager()
+
+#You'll need a volume, so lets create a new volume.
+my_brand_new_volume = volume_manager.create_new_volume(
+    size_gigabytes=10,
+    name="test-volume",
+    region="ams3",
+    description="BlockStoreFor Examples",
+    filesystem_type="ext4",
+    filesystem_label="example",
+    tags=["is", "it", "really", "this", "easy"],
+)
+
+#Well... damn that was easy. Peek at the volume object and the attributes. Nice.
+print(type(my_brand_new_volume))
+print(my_brand_new_volume.attributes)
+
+#So, now just ask your droplet to attach your new volume.
+my_brand_new_droplet.attach_a_volume(my_brand_new_volume)
+
+#Still don't beleive how easy this was? Check the droplet attributes, you will now have a volume id attached to it.
+print(my_brand_new_droplet.attributes.volume_ids)
+```
+
+Hope you're happy...
+
+... now read the rest of the documentation to see what other amazing things you can do!
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -852,6 +917,5 @@ ErrorDropletAlreadyHasFloatingIP
 ```python
 ErrorSSHkeyDoesNotExists
 ```
-
 
 **[⬆ back to top](#table-of-contents)**
