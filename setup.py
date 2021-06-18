@@ -1,13 +1,20 @@
-from distutils.core import setup
+# from distutils.core import setup
+##How to package
+##From your root package dir...
+##python3 setup.py sdist
+##twine check dist/*
+##twine upload dist/*
 
-# from setuptools import setup, find_packages
+
+from setuptools import setup
 
 # read the contents of your README file
 from os import path
 
-# this_directory = path.abspath(path.dirname(__file__))
-# with open(path.join(this_directory, "README.html"), encoding="utf-8") as f:
-#    long_description = f.read()
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
+    long_description = f.read()
+
 
 setup(
     name="digitaloceanobjects",
@@ -17,16 +24,16 @@ setup(
         "digitaloceanobjects.digitaloceanapi",
         "digitaloceanobjects.digitaloceanobjects",
     ],
-    version="0.0.5",
+    version="0.0.6",
     license="MIT",
     description="digitalocean-objects, represents all digital ocean services as objects, hiding all those horrible api calls.",
-    # long_description=long_description,
-    # long_description_content_type="text/html",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     author="zoran ilievski",
     author_email="pythonic@clientuser.net",
     url="https://github.com/zorani/digitalocean-objects",
-    download_url="https://github.com/zorani/cloudapi_digitalocean/archive/refs/tags/v0.0.5.tar.gz",
-    keywords=["digitalocean", "api"],
+    download_url="https://github.com/zorani/digitalocean-objects/archive/refs/tags/v0.0.6.tar.gz",
+    keywords=["digitalocean", "api", "objects"],
     install_requires=["cloudapi"],
     classifiers=[
         "Development Status :: 3 - Alpha",
