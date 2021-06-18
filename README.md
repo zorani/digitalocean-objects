@@ -1,4 +1,4 @@
-<h1 align="center">digitalocean-objects</h1>
+<h1 align="center">digitalocean objects (pip3 install digitaloceanobjects)</h1>
 <p align="left"><b>everyone:</b> I wish, for once, to just have a simple object oriented experience with the api.</p>
 <p align="left"><b>digitalocean-objects:</b> </p>
 
@@ -120,9 +120,9 @@
 
 # How to install
 
-You can install digitalocean-objects using **pip3**
+You can install digitaloceanobjects using **pip3**
 
-    pip3 install -U digitalocean-objects
+    pip3 install -U digitaloceanobjects
 
 or if you prefer install from a cloned git hub repo, from the root of the repo:
 
