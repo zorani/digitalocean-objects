@@ -1,4 +1,3 @@
-from ..digitaloceanobjects.droplet import Droplet
 from .digitaloceanapiconnection import DigitalOceanAPIConnection
 import os
 import time
