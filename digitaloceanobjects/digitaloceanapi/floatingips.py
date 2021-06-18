@@ -1,4 +1,4 @@
-from cloudapi_digitalocean.digitaloceanobjects.droplet import Droplet
+from ..digitaloceanobjects.droplet import Droplet
 from .digitaloceanapiconnection import DigitalOceanAPIConnection
 import os
 import time
