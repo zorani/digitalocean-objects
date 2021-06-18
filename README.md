@@ -15,6 +15,7 @@ Please visit <a href="https://github.com/zorani/digitalocean-objects">GitHub</a>
 - [How to install](#how-to-install)
 - [Configurations](#configurations)
 - [OMG OMG SHOW ME SHOW ME HOW... NOW!!!](#omg-omg-show-me-show-me-how...-now!!!)
+- [Blocking, Wonderfull Blocking](#blocking,-wonderfull-blocking)
 - [Account](#account)
 	- [Account Manager](#account-manager)
 		- [Retrieve Account Information](#retrieve-account-information)
@@ -240,6 +241,16 @@ Hope you're happy...
 ... now read the rest of the documentation to see what other amazing things you can do!
 
 **[⬆ back to top](#table-of-contents)**
+
+# Blocking, Wonderfull Blocking
+
+Did you notice in the quick start example above we didn't at any point check to see if the droplet, or the volume were ready and available?
+
+Well... that's because digitaloceanobjects is 'blocking', it waits for an operation on digital ocean to complete before returning.
+
+You can code away, without any worries.
+
+If you want to setup multiple droplets concurrently you should thread your droplet set up script so you're not waiting on independent services.
 
 # Account
 ## Account Manager
