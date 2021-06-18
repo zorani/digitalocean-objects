@@ -1,1 +1,1 @@
-# digitalocean_objects
+# digitalocean-objects
