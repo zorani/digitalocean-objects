@@ -8,7 +8,7 @@ import random
 import json
 
 
-class SSHkeys(DigitalOceanAPIConnection):
+class SSHKeys(DigitalOceanAPIConnection):
     def __init__(self):
         DigitalOceanAPIConnection.__init__(self)
         self.endpoint = "/v2/account/keys"

@@ -12,8 +12,8 @@ from .digitaloceanobject.floatingip import FloatingIP as FloatingIP
 from .digitaloceanobject.floatingip import FloatingIPManager as FloatingIPManager
 from .digitaloceanobject.account import Account as Account
 from .digitaloceanobject.account import AccountManager as AccountManager
-from .digitaloceanobject.sshkey import SSHkey as SSHkey
-from .digitaloceanobject.sshkey import SSHkeyManager as SSHkeyManager
+from .digitaloceanobject.sshkey import SSHKey as SSHKey
+from .digitaloceanobject.sshkey import SSHKeyManager as SSHKeyManager
 from .digitaloceanobject.account import Account as Account
 from .digitaloceanobject.account import AccountManager as AccountManager
 from .digitaloceanobject.region import Regions as Region

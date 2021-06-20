@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from ..digitaloceanapi.sshkeys import SSHkeys
+from ..digitaloceanapi.sshkeys import SSHKeys
 from ..common.cloudapiexceptions import *
 import json
 import threading
@@ -10,16 +10,16 @@ import re
 
 
 @dataclass
-class SSHkeyAttributes:
+class SSHKeyAttributes:
     id: str = None
     fingerprint: str = None
     public_key: str = None
     name: str = None
 
 
-class SSHkeyManager:
+class SSHKeyManager:
     def __init__(self):
-        self.sshkeyapi = SSHkeys()
+        self.sshkeyapi = SSHKeys()
 
     def retrieve_all_sshkeys(self):
         sshkey_objects = []
@@ -28,19 +28,19 @@ class SSHkeyManager:
             content = json.loads(response.content.decode("utf-8"))
             sshkey_datas = content["ssh_keys"]
             for sshkey_data in sshkey_datas:
-                newsshkey = SSHkey()
-                newsshkey.attributes = SSHkeyAttributes(**sshkey_data)
+                newsshkey = SSHKey()
+                newsshkey.attributes = SSHKeyAttributes(**sshkey_data)
                 sshkey_objects.append(newsshkey)
         return sshkey_objects
 
     def create_new_key(self, name, public_key):
-        newsshkey = SSHkey()
+        newsshkey = SSHKey()
         response = self.sshkeyapi.create_new_key(name, public_key)
         if response:
             content = json.loads(response.content.decode("utf-8"))
             sshkey_data = content["ssh_key"]
-            newsshkey = SSHkey()
-            newsshkey.attributes = SSHkeyAttributes(**sshkey_data)
+            newsshkey = SSHKey()
+            newsshkey.attributes = SSHKeyAttributes(**sshkey_data)
             return newsshkey
 
     def retrieve_sshkey_with_id(self, id):
@@ -58,11 +58,11 @@ class SSHkeyManager:
         return False
 
 
-class SSHkey:
+class SSHKey:
     def __init__(self):
-        self.attributes = SSHkeyAttributes()
-        self.sshkeyapi = SSHkeys()
-        self.sshkey_manager = SSHkeyManager()
+        self.attributes = SSHKeyAttributes()
+        self.sshkeyapi = SSHKeys()
+        self.sshkey_manager = SSHKeyManager()
 
     def update_name(self, name):
         if self.sshkey_manager.does_sshkey_exist_id(self.attributes):
@@ -70,7 +70,7 @@ class SSHkey:
             if response:
                 content = json.loads(response.content.decode("utf-8"))
                 sshkey_data = content["ssh_key"]
-                self.attributes = SSHkeyAttributes(**sshkey_data)
+                self.attributes = SSHKeyAttributes(**sshkey_data)
         raise ErrorSSHkeyDoesNotExists(
             f"SSHkey with id {self.attributes.id} could not be found."
         )

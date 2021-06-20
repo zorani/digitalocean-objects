@@ -121,15 +121,66 @@ Please visit <a href="https://github.com/zorani/digitalocean-objects">GitHub</a>
 
 # How to install
 
+Here are your options.
+
+## Install from pypi repository
+
+The most popular way is to install the latest package available on pypi.
+
 You can install digitaloceanobjects using **pip3**
 
     pip3 install -U digitaloceanobjects
 
-or if you prefer install from a cloned git hub repo, from the root of the repo:
+You can uninstall if you like using,
+
+    pip3 uninstall digitaloceanobjects
+
+## Install from the cloned git hub repo
+
+There are a few ways to install this python package from a clone of its github repo.
+Check out a copy and try the following...
+
+### Build a .tar.gz install package
+
+From the root of the repo build a repo, and check the repo.
 
     python3 setup.py sdist
     twine check dist/*
+
+Check the newly created dist directory for newly created .tar.gz files.
+This is your .tar.gz package and you can install using...
+
+    pip3 install ./dist/digitaloceanobjects-0.0.17.tar.gz
+
+You can still uninstall using the same commands,
+
+    pip3 uninstall digitaloceanobjects
+
+### Install using the setup.py file
+
+!WARNING! Install does not track which files, and where they are places.
+So, you need to keep a record of there python3 does this.
+
+This is how... from the github repo root directory.
+
+    sudo python3 setup.py install --record files.txt
+
+You can uninstall using by playing back that files.txt file,
+
+    sudo xargs rm -rf < files.txt
+
+### Local interactive install
+
+Using this method you can modify this packages code and have changes immediatly available.
+Perfect for if you want to tinker with the library, poke around and contribute to the project.
+
+From the cloned repository root directory.
+
     pip3 install -e ./
+
+You can uninstall using the usual command,
+
+    pip3 uninstall digitaloceanobjects
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -347,11 +398,11 @@ class RegionAttributes:
 
 # SSH Keys
 ```python
-from digitaloceanobjects import SSHkey, SSHkeyManager
+from digitaloceanobjects import SSHKey, SSHKeyManager
 ```
 ## SSH Key Manager
 ```python
-sshkey_manager = SSHkeyManager()
+sshkey_manager = SSHKeyManager()
 ```
 ### Retrieve All SSH Keys
 ```python
@@ -371,13 +422,13 @@ sshkey_object=SSHkey()
 ```
 
 ```python
-class SSHkey:
+class SSHKey:
     def __init__(self):
-        self.attributes = SSHkeyAttributes()
+        self.attributes = SSHKeyAttributes()
 ```
 ```python
 @dataclass
-class SSHkeyAttributes:
+class SSHKeyAttributes:
     id: str = None
     fingerprint: str = None
     public_key: str = None
