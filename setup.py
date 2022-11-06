@@ -24,7 +24,7 @@ setup(
         "digitaloceanobjects.digitaloceanapi",
         "digitaloceanobjects.digitaloceanobject",
     ],
-    version="0.0.21",
+    version="0.0.22",
     license="MIT",
     description="digitaloceanobjects, represents all digital ocean services as objects, hiding all those horrible api calls.",
     long_description=long_description,
@@ -32,7 +32,7 @@ setup(
     author="zoran ilievski",
     author_email="pythonic@clientuser.net",
     url="https://github.com/zorani/digitalocean-objects",
-    download_url="https://github.com/zorani/digitalocean-objects/archive/refs/tags/v0.0.21.tar.gz",
+    download_url="https://github.com/zorani/digitalocean-objects/archive/refs/tags/v0.0.22.tar.gz",
     keywords=["digitalocean", "api", "objects", "digitaloceanapi"],
     install_requires=["cloudapi"],
     classifiers=[
