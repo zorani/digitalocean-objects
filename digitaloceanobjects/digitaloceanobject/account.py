@@ -12,17 +12,30 @@ import threading
 import time
 import re
 
+# {'droplet_limit': ,
+# 'floating_ip_limit': ,
+# 'reserved_ip_limit': ,
+# 'volume_limit': ,
+# 'email': '',
+# 'uuid': '',
+# 'email_verified': ,
+# 'status': '',
+# 'status_message': '',
+# 'team': {'uuid': '', 'name': ''}}
+
 
 @dataclass
 class AccountAttributes:
     droplet_limit: int = None
     floating_ip_limit: int = None
+    reserved_ip_limit: int = None
     volume_limit: int = None
     email: str = None
     uuid: str = None
     email_verified: bool = None
     status: str = None
     status_message: str = None
+    team: object = None
 
 
 class AccountManager:
@@ -35,6 +48,7 @@ class AccountManager:
         if response:
             content = json.loads(response.content.decode("utf-8"))
             account_data = content["account"]
+            print(account_data)
             newaccount = Account()
             newaccount.attributes = AccountAttributes(**account_data)
             print(newaccount.attributes)
