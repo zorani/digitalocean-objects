@@ -92,6 +92,37 @@ class DropletManager:
             raise Exception(f"Could not create droplet {name}, {response.content}")
         return newdroplet
 
+    def create_new_droplet_wait(
+        self,
+        name,
+        region,
+        size,
+        image,
+        ssh_keys=[],
+        backups=None,
+        ipv6=None,
+        private_networking=None,
+        vpc_uuid=None,
+        user_data=None,
+        monitoring=None,
+        volumes=[],
+        tags=[],
+    ):
+        arguments = locals()
+        del arguments["self"]
+        my_droplet = self.create_new_droplet(**arguments)
+        droplet_id = my_droplet.attributes.id
+        status = None
+        while status != "active":
+            time.sleep(10)
+            try:
+                my_droplet = self.retrieve_droplet_by_id(droplet_id)
+                status = my_droplet.attributes.status
+            except:
+                # Obviously still waiting for droplet to start
+                pass
+        return my_droplet
+
     def retrieve_droplet_by_id(self, id):
         """
         Returns a Droplet object containing attributes for a droplet with id.
