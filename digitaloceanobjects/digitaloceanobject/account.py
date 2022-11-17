@@ -48,10 +48,10 @@ class AccountManager:
         if response:
             content = json.loads(response.content.decode("utf-8"))
             account_data = content["account"]
-            print(account_data)
+            # print(account_data)
             newaccount = Account()
             newaccount.attributes = AccountAttributes(**account_data)
-            print(newaccount.attributes)
+            # print(newaccount.attributes)
             return newaccount
 
     def droplet_limit(self):
