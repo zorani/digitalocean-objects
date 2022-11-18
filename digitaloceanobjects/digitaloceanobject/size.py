@@ -28,17 +28,27 @@ class SizeManager:
         self.sizeapi = Sizes()
 
     def retrieve_sizes(self):
-        response = self.sizeapi.list_all_sizes()
-        size_list = []
-        return_sizes = []
-        if response:
-            content = json.loads(response.content.decode("utf-8"))
-            size_list = content["sizes"]
-        for size_data in size_list:
+        sizes_list = []
+        page, per_page = 1, 10
+        response = self.sizeapi.list_all_sizes(page=page, per_page=per_page)
+        content = json.loads(response.content.decode("utf-8"))
+        sizes_list.extend(content["sizes"])
+        try:
+            while content["links"]["pages"]["next"]:
+                page = page + 1
+                response = self.sizeapi.list_all_sizes(page=page, per_page=per_page)
+                content = json.loads(response.content.decode("utf-8"))
+                sizes_list.extend(content["sizes"])
+                sys.stdout.flush()
+        except KeyError:
+            pass
+
+        sizes_objects = []
+        for sizes_data in sizes_list:
             newsize = Size()
-            newsize.attributes = SizeAttributes(**size_data)
-            return_sizes.append(newsize)
-        return return_sizes
+            newsize.attributes = SizeAttributes(**sizes_data)
+            sizes_objects.append(newsize)
+        return sizes_objects
 
     def retrieve_size(self, slug):
         sizes = self.retrieve_sizes()
